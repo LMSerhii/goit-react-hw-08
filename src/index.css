@@ -1,0 +1,51 @@
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --text-color: #ffffff74;
+  --header-color: #fff;
+  --border-color: #ffffff85;
+  --input-color: #414a4c;
+  --block-color: #3b444b;
+  --button: #353839;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: #000000c3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+button {
+  cursor: pointer;
+  font-family: inherit;
+  color: currentColor;
+}
+address {
+  font-style: normal;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapperClass {
+}
