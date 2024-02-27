@@ -5,7 +5,7 @@ export const searchByName = (arrey, query) => {
 };
 
 export const searchByNumber = (arrey, query) => {
-  return arrey.filter(product => product.phone.includes(query));
+  return arrey.filter(product => product.number.includes(query));
 };
 
 const isNumber = value => {

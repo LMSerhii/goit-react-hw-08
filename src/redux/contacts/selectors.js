@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { search } from '../../helpers/searchFunction';
 import { selectQuery } from '../filters/selectors';
+import { search } from '../../helpers/searchFunction';
 
 export const selectContacts = state => state.contacts.items;
 export const selectIsLoading = state => state.contacts.isLoading;

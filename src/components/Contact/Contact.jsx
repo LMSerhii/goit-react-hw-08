@@ -10,7 +10,7 @@ import Button from '../Button/Button';
 import EditContact from '../EditContact/EditContact';
 import { deleteContact } from '../../redux/contacts/operations';
 
-export default function Contact({ id, name, phone, randomColor }) {
+export default function Contact({ id, name, number, randomColor }) {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
@@ -35,7 +35,7 @@ export default function Contact({ id, name, phone, randomColor }) {
           >
             <FaPhoneAlt className={css.icon} />
           </span>
-          {phone}
+          {number}
         </p>
       </div>
       <div className={css.buttonGroup}>
@@ -50,7 +50,7 @@ export default function Contact({ id, name, phone, randomColor }) {
         </Button>
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <EditContact onClose={closeModal} id={id} name={name} phone={phone} />
+        <EditContact onClose={closeModal} id={id} name={name} number={number} />
       </Modal>
     </div>
   );

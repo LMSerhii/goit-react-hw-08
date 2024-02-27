@@ -4,7 +4,7 @@ import css from './LoginFrom.module.css';
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
-import Button from '../Button/Button';
+import { Button } from '@mui/material';
 
 const initialValues = { email: '', password: '' };
 
@@ -65,9 +65,7 @@ export default function LoginForm() {
             component="span"
           />
         </div>
-        <Button className={css.btn} type="submit">
-          Log In
-        </Button>
+        <Button type="submit">Log In</Button>
       </Form>
     </Formik>
   );

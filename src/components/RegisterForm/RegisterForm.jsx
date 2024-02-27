@@ -6,10 +6,10 @@ import { register } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
 
-const initialValues = { username: '', email: '', password: '' };
+const initialValues = { name: '', email: '', password: '' };
 
 const RegisterSchema = Yup.object().shape({
-  username: Yup.string()
+  name: Yup.string()
     .min(3, 'Too short')
     .max(50, 'Too long')
     .required('Username is required'),
@@ -35,8 +35,8 @@ export default function RegisterForm() {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={RegisterSchema}
       onSubmit={handleSubmit}
+      validationSchema={RegisterSchema}
     >
       <Form className={css.form} autoComplete="off">
         <div>

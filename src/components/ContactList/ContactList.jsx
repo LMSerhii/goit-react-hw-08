@@ -13,7 +13,7 @@ export default function ContactList() {
       <BlockHeader>Your contacts</BlockHeader>
 
       <ul className={css.contactList}>
-        {filtredContacts.map(({ id, name, phone }) => {
+        {filtredContacts.map(({ id, name, number }) => {
           const randomColor = getRandomTransparentColor();
 
           return (
@@ -21,7 +21,7 @@ export default function ContactList() {
               <Contact
                 id={id}
                 name={name}
-                phone={phone}
+                number={number}
                 randomColor={randomColor}
               />
             </li>

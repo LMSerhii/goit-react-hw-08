@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import ContactForm from '../ContactForm/ContactForm';
 import BlockHeader from '../BlockHeader/BlockHeader';
 
-export default function EditContact({ onClose, id, name, phone }) {
+export default function EditContact({ onClose, id, name, number }) {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, action) => {
@@ -20,7 +20,7 @@ export default function EditContact({ onClose, id, name, phone }) {
     onClose();
   };
 
-  const initialValues = { name: name, number: phone };
+  const initialValues = { name: name, number: number };
 
   return (
     <>
