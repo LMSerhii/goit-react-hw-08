@@ -1,0 +1,11 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #bccacfb0;
+}
+
+.link.active {
+  color: #d8abb1;
+}

@@ -1,9 +1,9 @@
 import { RiContactsBookFill } from 'react-icons/ri';
-import css from './Title.module.css';
+import css from './Logo.module.css';
 
-export default function Title() {
+export default function Logo() {
   return (
-    <h1 className={css.title}>
+    <h1 className={css.logo}>
       Phone Book <RiContactsBookFill />
     </h1>
   );

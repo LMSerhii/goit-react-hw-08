@@ -11,6 +11,7 @@ export default function ContactList() {
   return (
     <>
       <BlockHeader>Your contacts</BlockHeader>
+
       <ul className={css.contactList}>
         {filtredContacts.map(({ id, name, phone }) => {
           const randomColor = getRandomTransparentColor();
