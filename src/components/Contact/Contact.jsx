@@ -4,11 +4,11 @@ import { FaUserAlt } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FaEdit } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
+import css from './Contact.module.css';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
-import css from './Contact.module.css';
-import { deleteContact } from '../../redux/operations';
 import EditContact from '../EditContact/EditContact';
+import { deleteContact } from '../../redux/contacts/operations';
 
 export default function Contact({ id, name, phone, randomColor }) {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
-import { selectFiltredContacts } from '../../redux/selectors';
+import Contact from '../Contact/Contact';
 import BlockHeader from '../BlockHeader/BlockHeader';
 import { getRandomTransparentColor } from '../../helpers/getRandomTransparentColor';
+import { selectFiltredContacts } from '../../redux/contacts/selectors';
 
 export default function ContactList() {
   const filtredContacts = useSelector(selectFiltredContacts);

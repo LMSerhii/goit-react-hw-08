@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { Suspense, lazy, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Loading from './Loading/Loading';
 import Layout from './Layout/Layout';
-import { fetchContacts } from '../redux/operations';
-import { Route, Routes } from 'react-router-dom';
-import { AppBar } from './AppBar/AppBar';
 import NotFound from '../pages/NotFound';
+import AppBar from './AppBar/AppBar';
+import { fetchContacts } from '../redux/contacts/operations';
 
 const Home = lazy(() => import('../pages/Home'));
 

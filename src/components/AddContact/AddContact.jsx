@@ -1,9 +1,9 @@
+import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 import ContactForm from '../ContactForm/ContactForm';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContacts } from '../../redux/operations';
-import { selectContacts } from '../../redux/selectors';
 import BlockHeader from '../BlockHeader/BlockHeader';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { addContacts } from '../../redux/contacts/operations';
 
 export default function AddContact() {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
 // import { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterContacts } from '../../redux/filtersSlice';
-import css from './SearchBox.module.css';
-import { selectQuery } from '../../redux/selectors';
 import { useId } from 'react';
+import css from './SearchBox.module.css';
 import BlockHeader from '../BlockHeader/BlockHeader';
+import { selectQuery } from '../../redux/filters/selectors';
+import { filterContacts } from '../../redux/filters/filtersSlice';
 
 export default function SearchBox() {
   const searchBoxId = useId();

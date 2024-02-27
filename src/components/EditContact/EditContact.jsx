@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { updateContact } from '../../redux/operations';
+import { updateContact } from '../../redux/contacts/operations';
 import toast from 'react-hot-toast';
 import ContactForm from '../ContactForm/ContactForm';
 import BlockHeader from '../BlockHeader/BlockHeader';
