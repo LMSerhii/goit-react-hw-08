@@ -28,7 +28,7 @@ export default function EditContact({ onClose, id, name, number }) {
       <ContactForm
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        action="Edit contact"
+        action="edit"
       />
     </>
   );

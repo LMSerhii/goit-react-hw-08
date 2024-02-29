@@ -1,6 +1,9 @@
 .homeLayout {
-  background-color: #414a4c;
+  margin-top: 40px;
   padding: 24px;
+  background-color: #0f1c2b;
+  border-radius: 8px;
+  min-height: 80vh;
 }
 
 @media screen and (min-width: 1024px) {

@@ -5,6 +5,7 @@ import css from './SearchBox.module.css';
 import BlockHeader from '../BlockHeader/BlockHeader';
 import { selectQuery } from '../../redux/filters/selectors';
 import { filterContacts } from '../../redux/filters/filtersSlice';
+import { TextField } from '@mui/material';
 
 export default function SearchBox() {
   const searchBoxId = useId();
@@ -13,18 +14,27 @@ export default function SearchBox() {
 
   return (
     <>
-      <BlockHeader>Find contacts by name or phone</BlockHeader>
+      {/* <BlockHeader>Find contacts by name or phone</BlockHeader> */}
       <div className={css.searchBox}>
         {/* <label className={css.label} htmlFor={searchBoxId}>
         Find contacts by name or phone
       </label> */}
-        <input
+        {/* <input
           className={css.input}
           type="text"
           value={query}
           id={searchBoxId}
           name="searchContact"
           placeholder="Search contact"
+          onChange={evt => dispatch(filterContacts(evt.target.value))}
+        /> */}
+        <TextField
+          id="outlined-basic"
+          label="Search contact"
+          variant="outlined"
+          size="small"
+          sx={{ color: '#fff', borderColor: '#fff' }}
+          value={query}
           onChange={evt => dispatch(filterContacts(evt.target.value))}
         />
       </div>

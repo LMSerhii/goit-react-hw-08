@@ -6,12 +6,14 @@ import AppBar from '../AppBar/AppBar';
 
 export default function Layout() {
   return (
-    <div className={css.container}>
-      <AppBar />
+    <>
+      <AppBar container={css.container} />
       <Suspense fallback={null}>
-        <Outlet />
+        <main className={css.container}>
+          <Outlet />
+        </main>
       </Suspense>
       <Toaster position="top-right" reverseOrder={false} />
-    </div>
+    </>
   );
 }

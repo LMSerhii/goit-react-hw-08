@@ -1,5 +1,5 @@
 import css from './Main.module.css';
 
 export default function Main({ children }) {
-  return <main className={css.main}>{children}</main>;
+  return <div className={css.wrapper}>{children}</div>;
 }

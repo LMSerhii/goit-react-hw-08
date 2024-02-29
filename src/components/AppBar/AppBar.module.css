@@ -1,9 +1,10 @@
 .header {
+  padding: 24px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 90px;
-  padding: 24px;
-  border-bottom: 2px solid var(--border-color);
-  background-color: #232b2b;
 }

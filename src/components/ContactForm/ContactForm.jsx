@@ -2,7 +2,7 @@ import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
-import Button from '../Button/Button';
+import { Button } from '@mui/material';
 
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -57,8 +57,11 @@ export default function ContactForm({ initialValues, onSubmit, action }) {
             component="span"
           />
         </div>
-
-        <Button className={css.button} type="submit">
+        <Button
+          type="submit"
+          variant="contained"
+          style={{ width: '150px', margin: '0 auto' }}
+        >
           {action}
         </Button>
       </Form>
