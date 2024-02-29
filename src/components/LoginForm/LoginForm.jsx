@@ -63,6 +63,7 @@ export default function LoginForm() {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
           sx={{ marginBottom: '35px' }}
+          autoComplete="username"
         />
         <TextField
           fullWidth
@@ -76,6 +77,7 @@ export default function LoginForm() {
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
           sx={{ marginBottom: '20px' }}
+          autoComplete="current-password"
         />
         <Button color="primary" variant="contained" fullWidth type="submit">
           Log In
