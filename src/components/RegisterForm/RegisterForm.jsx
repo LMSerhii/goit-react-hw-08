@@ -1,26 +1,9 @@
-import { ErrorMessage, Field, Form, Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useId } from 'react';
-import css from './RegisterForm.module.css';
 import { register } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { Button, TextField } from '@mui/material';
-
-// const initialValues = { name: '', email: '', password: '' };
-
-// const RegisterSchema = Yup.object().shape({
-//   name: Yup.string()
-//     .min(3, 'Too short')
-//     .max(50, 'Too long')
-//     .required('Username is required'),
-//   email: Yup.string()
-//     .email('Invalid email address')
-//     .required('Email is required'),
-//   password: Yup.string()
-//     .min(8, 'Password must be at least 8 characters')
-//     .required('Password is required'),
-// });
 
 const validationSchema = yup.object({
   username: yup
@@ -39,70 +22,6 @@ const validationSchema = yup.object({
 });
 
 export default function RegisterForm() {
-  // const nameId = useId();
-  // const emailId = useId();
-  // const pswId = useId();
-  // const dispatch = useDispatch();
-
-  // const handleSubmit = (values, actions) => {
-  //   dispatch(register(values))
-  //     .unwrap()
-  //     .then(() => {
-  //       toast.success('Successfully registartion');
-  //       actions.resetForm();
-  //     })
-  //     .catch(() => toast.error('This user already exist!'));
-  // };
-
-  // return (
-  //   <Formik
-  //     initialValues={initialValues}
-  //     onSubmit={handleSubmit}
-  //     validationSchema={RegisterSchema}
-  //   >
-  //     <Form className={css.form} autoComplete="off">
-  //       <div>
-  //         <label className={css.label} htmlFor={nameId}></label>
-  //         <Field className={css.field} type="text" name="name" id={nameId} />
-  //         <ErrorMessage className={css.errorMsg} name="name" component="span" />
-  //       </div>
-  //       <div>
-  //         <label className={css.label} htmlFor={emailId}></label>
-  //         <Field
-  //           className={css.field}
-  //           type="email"
-  //           name="email"
-  //           id={emailId}
-  //           autoComplete="username"
-  //         />
-  //         <ErrorMessage
-  //           className={css.errorMsg}
-  //           name="email"
-  //           component="span"
-  //         />
-  //       </div>
-  //       <div>
-  //         <label className={css.label} htmlFor={pswId}></label>
-  //         <Field
-  //           className={css.field}
-  //           type="password"
-  //           name="password"
-  //           id={pswId}
-  //           autoComplete="current-password"
-  //         />
-  //         <ErrorMessage
-  //           className={css.errorMsg}
-  //           name="password"
-  //           component="span"
-  //         />
-  //       </div>
-  //       <Button className={css.btn} type="submit">
-  //         Register
-  //       </Button>
-  //     </Form>
-  //   </Formik>
-  // );
-
   const dispatch = useDispatch();
 
   const formik = useFormik({
