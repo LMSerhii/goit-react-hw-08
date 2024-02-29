@@ -4,6 +4,14 @@
   padding: 12px;
   font-weight: 700;
   color: #bccacfb0;
+
+  transition: color 350ms ease-out, transform 350ms ease-out;
+}
+
+.link:hover,
+.link:focus {
+  color: rgb(51, 153, 255);
+  transform: scale(1.1);
 }
 
 .link.active {

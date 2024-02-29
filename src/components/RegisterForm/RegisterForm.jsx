@@ -5,6 +5,7 @@ import css from './RegisterForm.module.css';
 import { register } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
+import toast from 'react-hot-toast';
 
 const initialValues = { name: '', email: '', password: '' };
 
@@ -28,8 +29,13 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values));
-    actions.resetForm();
+    dispatch(register(values))
+      .unwrap()
+      .then(() => {
+        toast.success('Successfully registartion');
+        actions.resetForm();
+      })
+      .catch(() => toast.error('This user already exist!'));
   };
 
   return (

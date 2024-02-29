@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 export default function Logo() {
   return (
     <Typography variant="body1" className={css.logo} fontSize={28}>
-      <RiContactsBookFill color={'#3399FF'} />
+      <RiContactsBookFill className={css.icon} />
       Phone Book
     </Typography>
   );

@@ -5,6 +5,7 @@ import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { Button } from '@mui/material';
+import toast from 'react-hot-toast';
 
 const initialValues = { email: '', password: '' };
 
@@ -23,8 +24,13 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(logIn(values));
-    actions.resetForm();
+    dispatch(logIn(values))
+      .unwrap()
+      .then(() => {
+        toast.success('Successully log in');
+        actions.resetForm();
+      })
+      .catch(() => toast.error('Check your email or password'));
   };
 
   return (
