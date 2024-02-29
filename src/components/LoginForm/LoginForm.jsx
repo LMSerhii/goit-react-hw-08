@@ -26,7 +26,7 @@ export default function LoginForm() {
       dispatch(logIn(values))
         .unwrap()
         .then(() => {
-          toast("OK, you're in!", {
+          toast('OK, you are in!', {
             icon: '💪',
             style: {
               borderRadius: '10px',

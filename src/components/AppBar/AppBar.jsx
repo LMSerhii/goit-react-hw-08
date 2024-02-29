@@ -11,7 +11,6 @@ export default function AppBar({ container }) {
       <div className={container}>
         <div className={css.navigation}>
           <Navigation />
-          {/* {isLoggedIn && <SearchBox />} */}
           {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </div>
       </div>

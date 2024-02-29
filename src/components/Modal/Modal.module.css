@@ -33,11 +33,13 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+
+  transition: color 350ms ease-out;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #1665c0;
   text-decoration: none;
   cursor: pointer;
 }
