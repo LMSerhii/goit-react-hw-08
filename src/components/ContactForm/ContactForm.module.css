@@ -4,20 +4,21 @@
   flex-direction: column;
   gap: 15px;
   padding: 15px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #1f262e;
   border-radius: 8px;
   margin-bottom: 20px;
-  background-color: #3b444b;
+  background-color: #101418;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px;
 }
 
 .input {
   margin-top: 5px;
   width: 100%;
   padding: 10px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #1f262e;
   border-radius: 8px;
   outline: none;
-  background-color: var(--input-color);
+  background-color: #1e262e;
   color: #ffffff6c;
 }
 
@@ -25,10 +26,10 @@
   margin: 0 auto;
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #1f262e;
   outline: none;
   background-color: var(--button);
 }
 .errorMsg {
-  color: rgba(255, 0, 0, 0.505);
+  color: #570007;
 }

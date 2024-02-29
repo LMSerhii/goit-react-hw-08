@@ -7,16 +7,36 @@ import BlockHeader from '../BlockHeader/BlockHeader';
 export default function EditContact({ onClose, id, name, number }) {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, action) => {
+  const handleSubmit = (values, actions) => {
     const currentValues = {
       ...values,
       contactId: id,
     };
 
-    dispatch(updateContact(currentValues));
-    toast.success('successfully edited');
+    dispatch(updateContact(currentValues))
+      .unwrap()
+      .then(() => {
+        toast('Contact edit successfully!', {
+          icon: '✔️',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
+        actions.resetForm();
+      })
+      .catch(() =>
+        toast('Something went wrong!', {
+          icon: '❌',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        })
+      );
 
-    action.resetForm();
     onClose();
   };
 
@@ -28,7 +48,7 @@ export default function EditContact({ onClose, id, name, number }) {
       <ContactForm
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        action="Edit contact"
+        action="edit"
       />
     </>
   );

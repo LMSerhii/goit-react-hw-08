@@ -1,7 +1,7 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
@@ -16,12 +16,13 @@
 
 .modalContent {
   position: relative;
-  background-color: #414a4c;
+  background-color: #0f1b29;
   margin: 15% auto;
   padding: 50px 20px 20px;
-  border: 1px solid #888;
+  border: 1px solid #1f262e;
   width: 345px;
   border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px;
 }
 
 .close {
@@ -32,11 +33,13 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+
+  transition: color 350ms ease-out;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #1665c0;
   text-decoration: none;
   cursor: pointer;
 }

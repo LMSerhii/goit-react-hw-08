@@ -2,11 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid var(--border-color);
+  border: 1px solid #1f262e;
   border-radius: 8px;
-  padding: 20px;
-  background-color: var(--block-color);
+  padding: 15px;
+  background-color: #101418;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px;
+
+  transition: transform 350ms ease-out;
 }
+/* 
+.contact:hover,
+.contact:focus {
+  transform: scale(1.05);
+} */
 
 @media screen and (min-width: 768px) {
   .contact {
@@ -19,8 +27,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background-color: #fff;
   border-radius: 100%;
 }
@@ -39,7 +47,6 @@
 }
 
 .icon {
-  /* margin-right: 10px; */
   color: #fff;
 }
 

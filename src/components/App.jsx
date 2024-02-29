@@ -10,7 +10,7 @@ import { useAuth } from '../hooks';
 const HomePage = lazy(() => import('../pages/Home'));
 const LogInPage = lazy(() => import('../pages/LogIn'));
 const SignUpPage = lazy(() => import('../pages/SignUp'));
-const ContactsPage = lazy(() => import('../pages/Contacts'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 export default function App() {

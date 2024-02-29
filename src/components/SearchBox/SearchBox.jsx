@@ -1,13 +1,12 @@
 // import { useId } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useId } from 'react';
 import css from './SearchBox.module.css';
 import BlockHeader from '../BlockHeader/BlockHeader';
 import { selectQuery } from '../../redux/filters/selectors';
 import { filterContacts } from '../../redux/filters/filtersSlice';
+import { TextField } from '@mui/material';
 
 export default function SearchBox() {
-  const searchBoxId = useId();
   const dispatch = useDispatch();
   const query = useSelector(selectQuery);
 
@@ -15,17 +14,14 @@ export default function SearchBox() {
     <>
       <BlockHeader>Find contacts by name or phone</BlockHeader>
       <div className={css.searchBox}>
-        {/* <label className={css.label} htmlFor={searchBoxId}>
-        Find contacts by name or phone
-      </label> */}
-        <input
-          className={css.input}
-          type="text"
+        <TextField
+          fullWidth
+          id="searchBox"
+          name="searchBox"
+          label="Search Contact"
           value={query}
-          id={searchBoxId}
-          name="searchContact"
-          placeholder="Search contact"
           onChange={evt => dispatch(filterContacts(evt.target.value))}
+          sx={{ marginBottom: '35px' }}
         />
       </div>
     </>

@@ -1,10 +1,10 @@
-.logo {
-  font-style: italic;
-  text-transform: uppercase;
-  color: wheat;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 90px;
 }
 
-.nav {
+.navMenu {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -15,16 +15,19 @@
   display: block;
   padding: 16px 0;
   transition: color var(--animation);
-  color: #353839;
+  color: #fff;
+
+  transition: transform 250ms ease-out;
 }
 
 .link:hover,
 .link:focus {
-  color: white;
+  color: #fff;
 }
 
 .link.active {
-  color: whitesmoke;
+  color: #fff;
+  transform: scale(1.2);
 }
 
 .active::after {

@@ -1,67 +1,56 @@
-import { useId } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import css from './ContactForm.module.css';
-import Button from '../Button/Button';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { Button, TextField } from '@mui/material';
 
-const ContactFormSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, 'Too short!')
-    .max(50, 'Too long!')
-    .required('Required'),
-  number: Yup.string()
-    .min(3, 'Too short!')
-    .max(50, 'Too long')
-    .required('Required'),
+const validationSchema = yup.object({
+  name: yup
+    .string('Enter contact name')
+    .min(2, 'Name too short!')
+    .max(50, 'Name too long!')
+    .required('Name is required'),
+  number: yup.string('Enter contact number').required('Number is required'),
 });
 
 export default function ContactForm({ initialValues, onSubmit, action }) {
-  const nameFieldId = useId();
-  const phoneFieldId = useId();
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: validationSchema,
+    onSubmit: onSubmit,
+  });
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={ContactFormSchema}
-    >
-      <Form className={css.form}>
-        <div>
-          <label className={css.label} htmlFor={nameFieldId}>
-            Name
-          </label>
-          <Field
-            className={css.input}
-            type="text"
-            name="name"
-            id={nameFieldId}
-            autoComplete="on"
-          />
-          <ErrorMessage className={css.errorMsg} name="name" component="span" />
-        </div>
-
-        <div>
-          <label className={css.label} htmlFor={phoneFieldId}>
-            Number
-          </label>
-          <Field
-            className={css.input}
-            type="tel"
-            name="number"
-            id={phoneFieldId}
-            autoComplete="on"
-          />
-          <ErrorMessage
-            className={css.errorMsg}
-            name="number"
-            component="span"
-          />
-        </div>
-
-        <Button className={css.button} type="submit">
+    <div>
+      <form onSubmit={formik.handleSubmit}>
+        <TextField
+          fullWidth
+          id="name"
+          name="name"
+          label="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
+          sx={{ marginBottom: '35px' }}
+          autoComplete="off"
+        />
+        <TextField
+          fullWidth
+          id="number"
+          name="number"
+          label="number"
+          value={formik.values.number}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.number && Boolean(formik.errors.number)}
+          helperText={formik.touched.number && formik.errors.number}
+          sx={{ marginBottom: '20px' }}
+          autoComplete="off"
+        />
+        <Button color="primary" variant="contained" fullWidth type="submit">
           {action}
         </Button>
-      </Form>
-    </Formik>
+      </form>
+    </div>
   );
 }

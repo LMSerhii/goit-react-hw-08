@@ -1,21 +1,10 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { FaUserAlt } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
-import { FaEdit } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5';
 import css from './Contact.module.css';
-import Modal from '../Modal/Modal';
-import Button from '../Button/Button';
-import EditContact from '../EditContact/EditContact';
-import { deleteContact } from '../../redux/contacts/operations';
+import DeleteButton from '../DeleteButton/DeleteButton';
+import EditButton from '../EditButton/EditButton';
 
 export default function Contact({ id, name, number, randomColor }) {
-  const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
     <div className={css.contact}>
       <div className={css.info}>
@@ -39,19 +28,9 @@ export default function Contact({ id, name, number, randomColor }) {
         </p>
       </div>
       <div className={css.buttonGroup}>
-        <Button className={css.button} onClick={openModal}>
-          <FaEdit size={24} color="	#353839" />
-        </Button>
-        <Button
-          className={css.button}
-          onClick={() => dispatch(deleteContact(id))}
-        >
-          <IoClose size={32} color="rgba(255, 0, 0, 0.5)" />
-        </Button>
+        <EditButton id={id} name={name} number={number} />
+        <DeleteButton id={id} />
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <EditContact onClose={closeModal} id={id} name={name} number={number} />
-      </Modal>
     </div>
   );
 }
