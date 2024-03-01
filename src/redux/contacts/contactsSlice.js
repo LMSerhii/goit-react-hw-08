@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
 import {
   addContacts,
   deleteContact,
   fetchContacts,
   updateContact,
 } from './operations';
+import persistReducer from 'redux-persist/es/persistReducer';
 
 const fetchContactsPending = state => {
   state.error = null;
@@ -18,8 +20,12 @@ const fetchContactsRejected = (state, action) => {
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: { items: [], isLoading: false, error: null },
-  reducers: {},
+  initialState: { items: [], favoriteItems: [], isLoading: false, error: null },
+  reducers: {
+    addFavorite: (state, action) => {
+      state.favoriteItems.push(action.payload);
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, fetchContactsPending)
@@ -66,4 +72,14 @@ const contactsSlice = createSlice({
   },
 });
 
-export const contactsReducer = contactsSlice.reducer;
+const contactsPersistConfig = {
+  key: 'favorite',
+  storage,
+  whitelist: ['favoriteItems'],
+};
+
+export const { addFavorite } = contactsSlice.actions;
+export const contactsReducer = persistReducer(
+  contactsPersistConfig,
+  contactsSlice.reducer
+);

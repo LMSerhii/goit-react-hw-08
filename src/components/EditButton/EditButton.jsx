@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import css from './EditButton.module.css';
-import { Button } from '@mui/material';
-import { FaEdit } from 'react-icons/fa';
 import Modal from '../Modal/Modal';
 import EditContact from '../EditContact/EditContact';
+import EditIcon from '@mui/icons-material/Edit';
+import { Fab } from '@mui/material';
 
 export default function EditButton({ id, name, number }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,9 +10,9 @@ export default function EditButton({ id, name, number }) {
   const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <Button className={css.button} onClick={openModal}>
-        <FaEdit size={24} color="#0072E5" />
-      </Button>
+      <Fab size="small" color="primary" onClick={openModal}>
+        <EditIcon />
+      </Fab>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <EditContact onClose={closeModal} id={id} name={name} number={number} />
       </Modal>

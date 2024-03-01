@@ -6,13 +6,21 @@ import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import AddContact from '../AddContact/AddContact';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ContactsIcon from '@mui/icons-material/Contacts';
 
 const actions = [
   { icon: <PersonAddIcon />, name: 'Add Contact' },
   { icon: <PersonSearchIcon />, name: 'Search Contact' },
+  { icon: <FavoriteIcon />, name: 'Favorite Contact' },
+  { icon: <ContactsIcon />, name: 'All Contact' },
 ];
 
-export default function BasicSpeedDial({ setIsVisible, isVisible }) {
+export default function BasicSpeedDial({
+  setIsVisible,
+  isVisible,
+  setIsFavoriteVisible,
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -25,6 +33,14 @@ export default function BasicSpeedDial({ setIsVisible, isVisible }) {
 
     if (action.name === 'Search Contact') {
       setIsVisible(!isVisible);
+    }
+
+    if (action.name === 'Favorite Contact') {
+      setIsFavoriteVisible(true);
+    }
+
+    if (action.name === 'All Contact') {
+      setIsFavoriteVisible(false);
     }
   };
 

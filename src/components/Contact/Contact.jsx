@@ -3,6 +3,7 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import css from './Contact.module.css';
 import DeleteButton from '../DeleteButton/DeleteButton';
 import EditButton from '../EditButton/EditButton';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 export default function Contact({ id, name, number, randomColor }) {
   return (
@@ -28,6 +29,7 @@ export default function Contact({ id, name, number, randomColor }) {
         </p>
       </div>
       <div className={css.buttonGroup}>
+        <FavoriteButton id={id} name={name} number={number} />
         <EditButton id={id} name={name} number={number} />
         <DeleteButton id={id} />
       </div>

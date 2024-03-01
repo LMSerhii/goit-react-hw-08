@@ -1,4 +1,4 @@
-import { Button, IconButton, Typography } from '@mui/material';
+import { Button, Fab, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteContact } from '../../redux/contacts/operations';
 import { useDispatch } from 'react-redux';
@@ -42,9 +42,9 @@ export default function DeleteButton({ id }) {
 
   return (
     <>
-      <IconButton aria-label="delete" onClick={openModal}>
-        <DeleteIcon sx={{ color: '#5A5C60', fontSize: 28 }} />
-      </IconButton>
+      <Fab size="small" onClick={openModal} color="warning">
+        <DeleteIcon color="disabled" sx={{ fontSize: 28, fill: '#fff' }} />
+      </Fab>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <Typography variant="body1" mb={'20px'}>
           {
@@ -52,7 +52,7 @@ export default function DeleteButton({ id }) {
           }
         </Typography>
         <div className={css.buttonGroup}>
-          <Button color="primary" variant="contained" onClick={closeModal}>
+          <Button color="primary" variant="outlined" onClick={closeModal}>
             No
           </Button>
           <Button color="primary" variant="contained" onClick={handleAgree}>
