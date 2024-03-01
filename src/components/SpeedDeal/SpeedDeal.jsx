@@ -6,26 +6,17 @@ import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import AddContact from '../AddContact/AddContact';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
-import SearchBox from '../SearchBox/SearchBox';
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import { useDispatch } from 'react-redux';
-import { filterContacts } from '../../redux/filters/filtersSlice';
 
 const actions = [
   { icon: <PersonAddIcon />, name: 'Add Contact' },
   { icon: <PersonSearchIcon />, name: 'Search Contact' },
-  { icon: <RestartAltIcon />, name: 'Reset Search' },
 ];
 
-export default function BasicSpeedDial() {
-  const dispatch = useDispatch();
+export default function BasicSpeedDial({ setIsVisible, isVisible }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSearchModalOpen, setSearchModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-  const openSearchModal = () => setSearchModalOpen(true);
-  const closeSearchModal = () => setSearchModalOpen(false);
 
   const handleClick = action => {
     if (action.name === 'Add Contact') {
@@ -33,11 +24,7 @@ export default function BasicSpeedDial() {
     }
 
     if (action.name === 'Search Contact') {
-      openSearchModal();
-    }
-
-    if (action.name === 'Reset Search') {
-      dispatch(filterContacts(''));
+      setIsVisible(!isVisible);
     }
   };
 
@@ -60,9 +47,6 @@ export default function BasicSpeedDial() {
       </SpeedDial>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <AddContact closeModal={closeModal} />
-      </Modal>
-      <Modal isOpen={isSearchModalOpen} onClose={closeSearchModal}>
-        <SearchBox />
       </Modal>
     </>
   );

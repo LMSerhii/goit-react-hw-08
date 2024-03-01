@@ -1,3 +1,4 @@
+
 :root {
   --font-family: 'Roboto', sans-serif;
   --text-color: #ffffff74;
@@ -47,7 +48,7 @@ img {
   height: auto;
 }
 
-.MuiInputBase-root {
+/* .MuiInputBase-root {
   color: #ffffff97 !important;
 }
 
@@ -77,4 +78,4 @@ img {
 
 .MuiFormLabel-root.Mui-error {
   color: #d32f2f !important;
-}
+} */

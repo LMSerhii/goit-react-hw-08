@@ -6,6 +6,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from '../redux/auth/operations';
 import { useAuth } from '../hooks';
+import Loading from './Loading/Loading';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const LogInPage = lazy(() => import('../pages/LogIn'));
@@ -22,7 +23,16 @@ export default function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <div
+      style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      }}
+    >
+      <Loading />
+    </div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
