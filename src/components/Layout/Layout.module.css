@@ -8,13 +8,13 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 768px;
+    max-width: 738px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .container {
-    max-width: 1024px;
+    max-width: 960px;
   }
 }
 
@@ -26,12 +26,12 @@
 
 @media screen and (min-width: 1440px) {
   .container {
-    max-width: 1440px;
+    max-width: 1360px;
   }
 }
 
 @media screen and (min-width: 2560px) {
   .container {
-    max-width: 2560px;
+    max-width: 1600px;
   }
 }

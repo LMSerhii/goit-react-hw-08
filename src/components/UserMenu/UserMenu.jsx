@@ -11,7 +11,7 @@ import {
   selectFvoriteContacts,
 } from '../../redux/contacts/selectors';
 
-export default function UserMenu() {
+export default function UserMenu({ mediaQuery }) {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const contacts = useSelector(selectContacts);
@@ -19,19 +19,24 @@ export default function UserMenu() {
 
   return (
     <div className={css.wrapper}>
-      <Badge badgeContent={favoriteContacts.length} color="primary">
-        <FavoriteIcon sx={{ color: '#fff' }} />
-      </Badge>
-      <Badge badgeContent={contacts.length} color="primary">
-        <Contacts sx={{ color: '#fff' }} />
-      </Badge>
-      <Typography className={css.username}>Welcome, {user.name} </Typography>
+      <>
+        <Badge badgeContent={favoriteContacts.length} color="primary">
+          <FavoriteIcon sx={{ color: '#fff' }} />
+        </Badge>
+        <Badge badgeContent={contacts.length} color="primary">
+          <Contacts sx={{ color: '#fff' }} />
+        </Badge>
+      </>
+
+      {mediaQuery && <Typography>Welcome, {user.name} </Typography>}
+
       <Avatar
         src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
         sx={{ bgcolor: deepPurple[500] }}
       >
         {user.name[0]}
       </Avatar>
+
       <Button type="button" onClick={() => dispatch(logOut())}>
         Logout
       </Button>

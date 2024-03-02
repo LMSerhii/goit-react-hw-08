@@ -29,3 +29,7 @@
 .MuiFormLabel-root.Mui-error {
   color: #d32f2f !important;
 }
+
+.MuiTypography-root {
+  color: #ffffff71 !important;
+}

@@ -1,13 +1,26 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 90px;
+  gap: 40px;
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    gap: 90px;
+  }
 }
 
 .navMenu {
   display: flex;
   align-items: center;
   gap: 20px;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .navMenu {
+    font-size: 20px;
+  }
 }
 
 .link {

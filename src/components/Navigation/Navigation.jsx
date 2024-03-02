@@ -8,7 +8,7 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-export default function Navigation() {
+export default function Navigation({ mediaQuery }) {
   const { isLoggedIn } = useAuth();
 
   return (
@@ -16,16 +16,18 @@ export default function Navigation() {
       <Link to="/">
         <Logo />
       </Link>
-      <div className={css.navMenu}>
-        <NavLink to="/" className={buildLinkClass}>
-          Home
-        </NavLink>
-        {isLoggedIn && (
-          <NavLink to="/contacts" className={buildLinkClass}>
-            Contacts
+      {!mediaQuery && (
+        <div className={css.navMenu}>
+          <NavLink to="/" className={buildLinkClass}>
+            Home
           </NavLink>
-        )}
-      </div>
+          {isLoggedIn && (
+            <NavLink to="/contacts" className={buildLinkClass}>
+              Contacts
+            </NavLink>
+          )}
+        </div>
+      )}
     </nav>
   );
 }
