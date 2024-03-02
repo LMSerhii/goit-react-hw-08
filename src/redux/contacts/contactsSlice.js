@@ -73,9 +73,9 @@ const contactsSlice = createSlice({
 });
 
 const contactsPersistConfig = {
-  key: 'favorite',
+  key: 'contacts',
   storage,
-  whitelist: ['favoriteItems'],
+  whitelist: ['items', 'favoriteItems'],
 };
 
 export const { addFavorite } = contactsSlice.actions;

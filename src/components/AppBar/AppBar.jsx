@@ -6,6 +6,7 @@ import css from './AppBar.module.css';
 
 export default function AppBar({ container }) {
   const { isLoggedIn } = useAuth();
+
   return (
     <header className={css.header}>
       <div className={container}>

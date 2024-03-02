@@ -9,13 +9,6 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ContactsIcon from '@mui/icons-material/Contacts';
 
-const actions = [
-  { icon: <PersonAddIcon />, name: 'Add Contact' },
-  { icon: <PersonSearchIcon />, name: 'Search Contact' },
-  { icon: <FavoriteIcon />, name: 'Favorite Contact' },
-  { icon: <ContactsIcon />, name: 'All Contact' },
-];
-
 export default function BasicSpeedDial({
   setIsVisible,
   isVisible,
@@ -25,23 +18,29 @@ export default function BasicSpeedDial({
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const actions = [
+    { icon: <PersonAddIcon />, name: 'Add Contact', handler: openModal },
+    {
+      icon: <PersonSearchIcon />,
+      name: 'Search Contact',
+      handler: toggleVisibility,
+    },
+    {
+      icon: <FavoriteIcon />,
+      name: 'Favorite Contact',
+      handler: setIsFavoriteVisible.bind(null, true),
+    },
+    {
+      icon: <ContactsIcon />,
+      name: 'All Contact',
+      handler: setIsFavoriteVisible.bind(null, false),
+    },
+  ];
 
   const handleClick = action => {
-    if (action.name === 'Add Contact') {
-      openModal();
-    }
-
-    if (action.name === 'Search Contact') {
-      setIsVisible(!isVisible);
-    }
-
-    if (action.name === 'Favorite Contact') {
-      setIsFavoriteVisible(true);
-    }
-
-    if (action.name === 'All Contact') {
-      setIsFavoriteVisible(false);
-    }
+    action.handler();
   };
 
   return (
