@@ -25,6 +25,13 @@ const contactsSlice = createSlice({
     addFavorite: (state, action) => {
       state.favoriteItems.push(action.payload);
     },
+
+    deleteFavorite: (state, action) => {
+      const index = state.favoriteItems.findIndex(
+        contact => contact.id === action.payload.id
+      );
+      state.favoriteItems.splice(index, 1);
+    },
   },
   extraReducers: builder => {
     builder
@@ -48,7 +55,7 @@ const contactsSlice = createSlice({
         state.error = null;
 
         const index = state.items.findIndex(
-          task => task.id === action.payload.id
+          contact => contact.id === action.payload.id
         );
         state.items.splice(index, 1);
       })
@@ -78,7 +85,7 @@ const contactsPersistConfig = {
   whitelist: ['items', 'favoriteItems'],
 };
 
-export const { addFavorite } = contactsSlice.actions;
+export const { addFavorite, deleteFavorite } = contactsSlice.actions;
 export const contactsReducer = persistReducer(
   contactsPersistConfig,
   contactsSlice.reducer

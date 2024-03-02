@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import css from './DeleteButton.module.css';
 import toast from 'react-hot-toast';
+import { deleteFavorite } from '../../redux/contacts/contactsSlice';
 
 export default function DeleteButton({ id }) {
   const dispatch = useDispatch();
@@ -37,6 +38,8 @@ export default function DeleteButton({ id }) {
           },
         })
       );
+
+    dispatch(deleteFavorite(id));
     setIsModalOpen(false);
   };
 
