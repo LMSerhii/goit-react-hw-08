@@ -20,10 +20,15 @@ export default function UserMenu({ mediaQuery }) {
   return (
     <div className={css.wrapper}>
       <>
-        <Badge badgeContent={favoriteContacts.length} color="primary">
+        <Badge badgeContent={favoriteContacts.length} color="primary" showZero>
           <FavoriteIcon sx={{ color: '#fff' }} />
         </Badge>
-        <Badge badgeContent={contacts.length} color="primary">
+        <Badge
+          badgeContent={contacts.length}
+          color="primary"
+          max={999}
+          showZero
+        >
           <Contacts sx={{ color: '#fff' }} />
         </Badge>
       </>
